@@ -20,7 +20,6 @@ var r, g, b = 0;
 colorPicker.oninput = (e) => (setColor(e.target.value))
 colorModeBtn.onclick = () => (setMode('color'));
 rainbowModeBtn.onclick = () => (setMode('rainbow'));
-shadeModeButton.onclick = () => (setMode('shade'));
 eraseModeBtn.onclick = () => (setMode('erase'));
 clearModeBtn.onclick = () => (resetGrid());
 slider.onmousemove = (e) => (setGridTextSize(e.target.value));
@@ -39,12 +38,27 @@ function setMode(newMode) {
     r = 0;
     g = 0;
     b = 0;
-    console.log(drawMode);
+    if (drawMode === 'color') {
+        colorModeBtn.classList.add('active');
+        rainbowModeBtn.classList.remove('active');
+        eraseModeBtn.classList.remove('active');
+    }
+    if (drawMode === 'rainbow') {
+        colorModeBtn.classList.remove('active');
+        rainbowModeBtn.classList.add('active');
+        eraseModeBtn.classList.remove('active');
+    }
+    if (drawMode === 'erase') {
+        colorModeBtn.classList.remove('active');
+        rainbowModeBtn.classList.remove('active');
+        eraseModeBtn.classList.add('active');
+    }
 }
 
 function resetGrid() {
     eraseGrid();
     createGrid(actualGridSize);
+    
 }
 
 function eraseGrid() {
@@ -78,10 +92,7 @@ function colorGridElement(e) {
         b = Math.floor(Math.random() * 256);
 
         e.target.style.backgroundColor = `rgb(${r},${g},${b})`
-    } else if (drawMode === 'shade') {
-
     }
-    console.log(r, g, b)
 }
 
 

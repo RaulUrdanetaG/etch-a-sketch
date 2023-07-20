@@ -70,6 +70,7 @@ body {
 .tool-btn:hover {
     cursor: pointer;
     scale: 1.1;
+    transition: .2s;
 }
 
 .slider-box {
@@ -131,4 +132,10 @@ input[type="range"]::-moz-progress-bar {
     border-radius: 10px;
     height: 60px;
     width: 60px;
+}
+
+.active{
+    background-color: black;
+    color: white;
+    transition: all .2s;
 }
