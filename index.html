@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body class="body">
     <div class="main-container flex">
         <div class="tools-bar flex-col">
-            <button id="black-mode-button" class="tool-btn">Black mode</button>
-            <button id="rainbow-mode-button" class="tool-btn">Rainbow mode</button>
-            <button id="eraser-button" class="tool-btn">Eraser</button>
-            <button id="clear-button" class="tool-btn">Clear</button>
+            <div class="flex">
+                <input type="color" name="color-picker" id="color-picker"> Pick your color
+            </div>
+            <button id="color-mode-button" class="tool-btn black-mode">Color mode</button>
+            <button id="rainbow-mode-button" class="tool-btn rainbow-mode">Rainbow mode</button>
+            <button id="shade-mode-button" class="tool-btn shade-mode">Shade mode</button>
+            <button id="erase-button" class="tool-btn erase-mode">Eraser</button>
+            <button id="clear-button" class="tool-btn clear-mode">Clear</button>
             <div class="flex-col slider-box">
-                <input class="slider" type="range" min="16" max="64" name="slider" id="grid-size-slider">
-                <h3>16x16</h3>
+                <input class="slider" type="range" value="16" min="16" max="64" name="slider" id="grid-size-slider">
+                <h3>16 x 16</h3>
             </div>
         </div>
         <div class="flex-col draw-space">
@@ -25,4 +31,5 @@
     </div>
     <script src="./script.js"></script>
 </body>
+
 </html>

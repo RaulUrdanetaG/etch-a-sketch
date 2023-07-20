@@ -15,9 +15,11 @@ body {
     align-items: center;
 }
 
-#black-mode-button,
+#color-mode-button,
 #rainbow-mode-button,
-#eraser-button {
+#shade-mode-button,
+#erase-button,
+#clear-button {
     font-family: 'Pangolin';
 }
 
@@ -122,5 +124,11 @@ input[type="range"]::-moz-progress-bar {
 
 .grid-element {
     user-select: none;
-    border: 1px solid black;
+}
+
+#color-picker{
+    appearance: none;
+    border-radius: 10px;
+    height: 60px;
+    width: 60px;
 }

@@ -1,6 +1,12 @@
+const DEFAULT_MODE = 'color';
+const DEFAULT_SIZE = 16;
+const DEFAULT_COLOR = 'black';
+
 const grid = document.getElementById('grid');
-const blackModeBtn = document.getElementById('black-mode-button');
+const colorPicker = document.getElementById('color-picker');
+const colorModeBtn = document.getElementById('color-mode-button');
 const rainbowModeBtn = document.getElementById('rainbow-mode-button');
+const shadeModeButton = document.getElementById('shade-mode-button');
 const eraseModeBtn = document.getElementById('erase-button');
 const clearModeBtn = document.getElementById('clear-button');
 const slider = document.querySelector('.slider');
@@ -8,24 +14,35 @@ const sliderText = document.querySelector('.slider-box h3');
 
 var drawMode = '';
 var actualGridSize = 0;
+var actualColor = '';
+var r, g, b = 0;
 
-blackModeBtn.onclick = () => (setMode('black'));
+colorPicker.oninput = (e) => (setColor(e.target.value))
+colorModeBtn.onclick = () => (setMode('color'));
 rainbowModeBtn.onclick = () => (setMode('rainbow'));
+shadeModeButton.onclick = () => (setMode('shade'));
 eraseModeBtn.onclick = () => (setMode('erase'));
 clearModeBtn.onclick = () => (resetGrid());
 slider.onmousemove = (e) => (setGridTextSize(e.target.value));
 slider.onmouseup = (e) => (createGrid(e.target.value))
 
-function setGridTextSize(gridSize){
+function setColor(pickedColor) {
+    actualColor = pickedColor;
+}
+
+function setGridTextSize(gridSize) {
     sliderText.innerHTML = `${gridSize} x ${gridSize}`;
 }
 
 function setMode(newMode) {
     drawMode = newMode;
+    r = 0;
+    g = 0;
+    b = 0;
     console.log(drawMode);
 }
 
-function resetGrid(){
+function resetGrid() {
     eraseGrid();
     createGrid(actualGridSize);
 }
@@ -41,12 +58,41 @@ function createGrid(gridSize) {
     for (let i = 0; i < gridSize * gridSize; i++) {
         const gridElement = document.createElement('div');
         gridElement.classList.add('grid-element');
+        gridElement.addEventListener('mouseover', colorGridElement);
+        gridElement.addEventListener('mousedown', colorGridElement);
         grid.appendChild(gridElement);
     }
     actualGridSize = gridSize;
+}
+
+function colorGridElement(e) {
+    if (e.type === 'mouseover' && !mouseDown) {
+        return
+    } else if (drawMode === 'color') {
+        e.target.style.backgroundColor = `${actualColor}`;
+    } else if (drawMode === 'erase') {
+        e.target.style.backgroundColor = 'white';
+    } else if (drawMode === 'rainbow') {
+        r = Math.floor(Math.random() * 256);
+        g = Math.floor(Math.random() * 256);
+        b = Math.floor(Math.random() * 256);
+
+        e.target.style.backgroundColor = `rgb(${r},${g},${b})`
+    } else if (drawMode === 'shade') {
+
+    }
+    console.log(r, g, b)
 }
 
 
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
+
+
+window.onload = () => {
+    createGrid(DEFAULT_SIZE);
+    setGridTextSize(DEFAULT_SIZE);
+    setMode(DEFAULT_MODE);
+    setColor(DEFAULT_COLOR);
+}
