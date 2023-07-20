@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    font-family: 'Pangolin';
+    height: 100%;
+    background-color: #EDEDED;
+    align-items: center;
+}
+
+#black-mode-button,
+#rainbow-mode-button,
+#eraser-button {
+    font-family: 'Pangolin';
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container {
+    flex: 1;
+    width: 70%;
+    height: 70%;
+    gap: 20px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    justify-content: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.tools-bar {
+    gap: 15px;
+    width: 200px;
+}
+
+.tool-btn {
+    background-color: #EDEDED;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.tool-btn:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.slider-box {
+    align-items: center;
+}
+
+.slider-box input {
+    width: 200px;
+}
+
+.slider {
+    cursor: pointer;
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+
+input[type="range"]::-webkit-progress-value {
+    appearance: none;
+    /* Establecer el color del track de carga en navegadores WebKit */
+    background-color: #FF5733;
+    /* Color del track de carga */
+    border-radius: 5px;
+    /* Bordes redondeados para el track de carga */
+}
+
+/* Estilos para el track de carga en navegadores Firefox */
+input[type="range"]::-moz-progress-bar {
+    /* Establecer el color del track de carga en navegadores Firefox */
+    background-color: #FF5733;
+    /* Color del track de carga */
+    border-radius: 5px;
+    /* Bordes redondeados para el track de carga */
+}
+
+.draw-space {
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 5px darkgray;
+
+}
+
+.grid-element {
+    user-select: none;
+    border: 1px solid black;
+}

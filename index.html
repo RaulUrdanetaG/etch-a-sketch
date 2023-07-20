@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="body">
+    <div class="main-container flex">
+        <div class="tools-bar flex-col">
+            <button id="black-mode-button" class="tool-btn">Black mode</button>
+            <button id="rainbow-mode-button" class="tool-btn">Rainbow mode</button>
+            <button id="eraser-button" class="tool-btn">Eraser</button>
+            <button id="clear-button" class="tool-btn">Clear</button>
+            <div class="flex-col slider-box">
+                <input class="slider" type="range" min="16" max="64" name="slider" id="grid-size-slider">
+                <h3>16x16</h3>
+            </div>
+        </div>
+        <div class="flex-col draw-space">
+            <header class="header">Etch-a-Sketch</header>
+            <div id="grid" class="grid"></div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
