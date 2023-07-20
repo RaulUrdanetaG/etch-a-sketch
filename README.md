@@ -1,6 +1,6 @@
 # etch-a-sketch
 
-<img src='./imges/finalApp.jpeg'/>
+<img src='./images/finalApp.jpeg'/>
 
 # Learnings
 
