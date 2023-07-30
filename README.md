@@ -9,3 +9,5 @@
 - Learned how to use inputs like sliders and color inputs, on sliders using .onmousemove, .onmouseup and .onmousedown.
 - Practiced creating HTML elements from Js code.
 - Used for the first time window.onload to preset values when loading the page.
+
+[Live Preview](https://raulurdanetag.github.io/etch-a-sketch/) 👈
